@@ -1,0 +1,3 @@
+.section-item.incomplete:not(.next-lecture) {
+    pointer-events: none;
+}
