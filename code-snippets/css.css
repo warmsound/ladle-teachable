@@ -1,3 +1,9 @@
+/* Disable menu items for incomplete lectures, but not the current lecture */
 .section-item.incomplete:not(.next-lecture) {
     pointer-events: none;
+}
+
+/* Hide "Start" buttons for incomplete lectures, but not the current lecture */
+.section-item.incomplete:not(.next-lecture) .btn-primary {
+    display: none;
 }
