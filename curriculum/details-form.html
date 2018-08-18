@@ -88,6 +88,9 @@
 <iframe name="my-iframe" style="display: none"></iframe>
 
 <script>
+  // Hide "Complete and continue >" button.
+  $('#lecture_complete_button').css('visibility', 'hidden');
+  
   var $email = $('#fedora-data').attr('data-email');
   $('#form-email').attr('value', $email);
   var date = new Date();
@@ -113,10 +116,13 @@
   var dateString = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes;
   $('#form-datetime').attr('value', dateString);
 
-
-  // $('#submit-form').on('click', function() {
-  //   $('a.complete').show();
-  //   $('form').hide()
-  //   $('#custom-form-wrapper').append('<p>Thanks for submitting your data.</p>')
-  // });
+  // Show thank you message when completed form is successfully submitted.
+  $('form').on('submit', function() {
+    $('a.complete').show();
+    $('form').hide()
+    $('#custom-form-wrapper').append('<p>Thanks for submitting your data.</p>')
+    
+    // Show "Complete and continue >" button.
+    $('#lecture_complete_button').css('visibility', 'visible');
+  });
 </script>
