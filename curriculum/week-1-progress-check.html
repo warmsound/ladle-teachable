@@ -6,12 +6,6 @@
   <form method="get" target="my-iframe" class="form-horizontal" action="https://script.google.com/macros/s/AKfycbzz_fG_HyG9jZ58GJGVicVPIZZ-3m-OxRsABbdFyT4XcjJMG6Q/exec">
       <!-- main questions -->
       <div class="form-group">
-        <label class="col-md-3 col-lg-2 control-label">Email:</label>
-        <div class="col-md-3 col-lg-2">
-          <input class="form-control" id="form-email" name="email" required>      
-        </div>
-      </div>
-      <div class="form-group">
         <label class="col-md-3 col-lg-2 control-label">Enter your weight (kg):</label>
         <div class="col-md-3 col-lg-2">
           <input class="form-control" type="text" name="weight" required>  
@@ -35,6 +29,7 @@
       </div>
       
       <!-- hidden fields -->
+      <input id="form-email" type="hidden" name="email"> 
       <input name="sheet" value="Week 1" type="hidden">
       <input id="form-datetime" name="timestamp" type="hidden">
       <div class="form-group">
@@ -47,13 +42,14 @@
 </div>
 
 <script>
+  var $email = $('#fedora-data').attr('data-email');
+  $('#form-email').attr('value', $email);
   var date = new Date();
   var day = date.getDate();
   var month = date.getMonth();
   var year = date.getFullYear();
   var hours = date.getHours();
   var minutes = date.getMinutes();
-  
   
   month += 1;
   if (hours <= 9) {
